@@ -39,7 +39,7 @@ password：111111
 When insert a new Student, Update information is required, link can be found in login page.
 //
 
-Technology been used:
+# Technology been used:
 Thymeleaf-2.7.18 (Apache)
 Springboot-2.7.18
 Mongodb
@@ -59,19 +59,19 @@ Nginx for proxy to convert dynamic page to static page. (Because Haproxy only al
 Haproxy to balance multiple Nginx server when require large amount of server.
 
  
-# Libraries:
+Libraries:
 springframework.boot.spring.starter.web
 springframework.boot.spring.starter.thymeleaf
 springframework.boot.spring.starter.data.mongodb
 springframework.boot.spring.devtools
 
-# Pramater for users:
+Pramater for users:
 Admin(String id, String name, String email, String password, String role);
 Staff(String id, String name, String passportNumber, String status, String email, String password);
 Student(String id, String name, String passportNumber, LocalDate dateOfBirth, String password, Boolean checked);
 Subject(String id, String name);
 
-# Controller.Dashboard:
+Controller.Dashboard:
 Dashboard
 StaffList
 StudentList
@@ -80,15 +80,15 @@ SearchSystem
 First(Time)Login
 StudentUpdateInfo(For student who login the system first time, student can update their info.)
 
-# Controller.LoginController:
+Controller.LoginController:
 Login
 Logout
 Redirect
 
-# Service.DashboardService:
+Service.DashboardService:
 Provided Service used by Controller.Dashboard.
 
-# Service.LoginService:
+Service.LoginService:
 Provided Service used by Controller.LoginController.
 
 Other Controller.*:
@@ -96,7 +96,7 @@ Provided API for RESTful API
 Other Service.*:
 Provided API for Controller.*
 
-Detail of Dashboard Page and LoginPage:
+# Detail of Dashboard Page and LoginPage:
 Login:
 1.By using Thymeleaf, when user login the system, springboot will check the session id, if the session id is empty, user will be redirect to /login page.
 
@@ -113,6 +113,7 @@ FirstTimeLogin:
 1.This method can be used to update the information for a first-time login system (meet the functional requirement 1),  first-time login student can login the system by clicking the link in the login page, then they need to provide their id and name, the updateinfopage only redirect when the user and id is correct.
 2.When the infoupdate page is show up, user needs to fill all the label, the update button will update the info for this student only when they fill all the labels.
 3.If the public checked in the student is true then they will not able to login the first time login system again.  
+
 Dashboard:
 By using the Thymeleaf for the frontend server, it can help generate more flexibility page for dashboard, Student had info (dateofbirth) but a staff never store this information into the system, but a staff have info (status) and student dose not, Thymeleaf will th:if="${user_type=='Student'}" will help decide what information will be generated for client.
 
@@ -139,7 +140,7 @@ Search:
 because the id of each object is unique, so using getStudentById(id) to return the object to the Controller.
 then controller will return StudentList same as “List all Student page.”
 
-
+# API
 Here is the api address After running the local server successfully, you can use the following api to realise some functions (including some admin functions).
 A convenient way is to use https://www.postman.com/ which is to run following API
 
