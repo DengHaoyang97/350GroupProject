@@ -1,13 +1,27 @@
 # 350GroupProjectSimple startup (for local testing)
-Download the OLS_GP_jar folder (which contains the OLS_GP.jar and run.bat files)
-Double click on run.bat.
-Wait for sserver to start
-Enter the local address http://127.0.0.1:8081/ in your browser
-Successfully enter the page
-Two files in the same directory as the folder OLS_GP
-NormalVERTestStarter.jar unzipped and run the launcher to open the Server
-WithProxyVersion.jar unzipped and run the launcher to test
-The two files can not be opened at the same time, the address will be a conflict!
+
+# Standalone Server Binary:
+(run.bat and OLS_GP.jar must be in the same directory.
+unzip NormalVerTestStarter.rar and run the server by double click run.bat)
+
+1. Download the NormalVerTestStarter.rar folder (which contains the OLS_GP.jar and run.bat files)
+2. Unzip all the files in the zip
+3. Double click on run.bat.
+4. Wait until the server started.
+5. Enter the local address http://127.0.0.1:8081/ in your browser
+
+# Balance load Server with multiple Binary:
+# Please read additionalUseageProxy.docx before testing the Balance Load Server!!!
+(unzipp WithProxyVersion.rar, run MainServer.bat to start the main server,
+then start Nginx and HaProxy by double click StartProxy.bat
+The run.bat MainServer.bat can not be opened at the same time, Please close run.bat by input Ctrl+C before the test!)
+
+1. Download the NormalVerTestStarter.rar folder
+2. Unzip all the files in the zip
+3. Start Main Server by double click MainServer.bat
+4. Start Proxy Server by double click StartProxy.bat
+5. Enter the local address http://127.0.0.1:8083/ in your browser
+
 
 # User,Staff,Student for Testing
 Users for testing:
