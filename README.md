@@ -9,7 +9,7 @@ NormalVERTestStarter.jar unzipped and run the launcher to open the Server
 WithProxyVersion.jar unzipped and run the launcher to test
 The two files can not be opened at the same time, the address will be a conflict!
 
-#
+# User,Staff,Student for Testing
 Users for testing:
 Staff1:
 ID: 683474
@@ -59,19 +59,19 @@ Nginx for proxy to convert dynamic page to static page. (Because Haproxy only al
 Haproxy to balance multiple Nginx server when require large amount of server.
 
  
-Libraries:
+# Libraries:
 springframework.boot.spring.starter.web
 springframework.boot.spring.starter.thymeleaf
 springframework.boot.spring.starter.data.mongodb
 springframework.boot.spring.devtools
 
-Pramater for users:
+# Pramater for users:
 Admin(String id, String name, String email, String password, String role);
 Staff(String id, String name, String passportNumber, String status, String email, String password);
 Student(String id, String name, String passportNumber, LocalDate dateOfBirth, String password, Boolean checked);
 Subject(String id, String name);
 
-Controller.Dashboard:
+# Controller.Dashboard:
 Dashboard
 StaffList
 StudentList
@@ -80,15 +80,15 @@ SearchSystem
 First(Time)Login
 StudentUpdateInfo(For student who login the system first time, student can update their info.)
 
-Controller.LoginController:
+# Controller.LoginController:
 Login
 Logout
 Redirect
 
-Service.DashboardService:
+# Service.DashboardService:
 Provided Service used by Controller.Dashboard.
 
-Service.LoginService:
+# Service.LoginService:
 Provided Service used by Controller.LoginController.
 
 Other Controller.*:
