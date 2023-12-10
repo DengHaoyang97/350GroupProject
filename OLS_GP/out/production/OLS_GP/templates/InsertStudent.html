@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<body background="https://www.freelancinggig.com/blog/wp-content/uploads/2020/02/future-proof-sys-admin.png"></body>
+<title>Insert</title>
+<style>
+  body {
+    background-color: #F5FFFA;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  h2 {
+    border: 2px solid #D3D3D3;
+    opacity: 0.7;
+    border-radius: 8px;
+    margin-top: 60px;
+    margin-bottom: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #F5F5DC;
+    padding: 8px;
+    width: 380px;
+    text-align: center;
+  }
+
+  a:link {
+    color: DimGrey;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  a:visited {
+    color: DimGrey;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  a:hover {
+    color: DarkSlateGrey;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+  a:active {
+    color: GoldenRod;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+
+  form {
+    background-color: LightSteelBlue;
+    opacity: 0.7;
+    width: 380px;
+    border: 2px solid #708090;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    width: 66%;
+    padding: 5px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+
+  button[type="submit"] {
+    background-color: DimGrey;
+    color: white;
+    padding: 10px 22px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+  }
+
+  button[type="submit"]:hover {
+    background-color: DarkGrey;
+    color: white;
+    border-radius: 8px;
+
+  }
+
+  p.error {
+    color: red;
+    margin-top: 10px;
+  }
+</style>
+
+</head>
+
+<body>
+<h2>Insert</h2>
+<form th:action="@{/register}" method="post">
+  <div>
+    <label for="name">Name:</label>
+    <br>
+    <input type="text" id="name" name="name" required />
+  </div>
+  <br>
+  <div>
+    <button type="submit">Insert</button>
+  </div>
+</form>
+<br>
+<ul>
+  <footer style="text-align:center; margin-right: 50px;">
+    <a href="/login">Go Back</a>
+  </footer>
+</ul>
+</body>
+</html>

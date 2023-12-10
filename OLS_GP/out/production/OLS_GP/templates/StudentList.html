@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="'Online Learning System'"></title>
+    <body background="https://pic1.zhimg.com/v2-ff7b02d115660d54f4fa3d4e7673a2df_r.jpg?source=1940ef5c"></body>
+    <style>
+        table, th, td {
+            border: 3px solid black;
+            border-collapse: collapse;
+            width: 400px;
+            height: 30px;
+        }
+        th, td {
+            padding: 1px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<h1 th:text="'Wellcome to the OLS DEMO'" style="font-size:20px"></h1>
+<h5 th:if="${#lists.isEmpty(studentList)}" style="font-size:30px">Sorry, We cannot find any list for this</h5>
+
+<div th:if="${ not#lists.isEmpty(studentList)}">
+    <h5 th:text="'Here is a list of Students'"></h5>
+    <table>
+        <tr>
+            <th style="font-size:20px; text-align:center;">Name</th>
+            <th style="font-size:20px; text-align:center;">ID</th>
+            <th style="font-size:20px; text-align:center;">EMail Address</th>
+            <th style="font-size:20px; text-align:center;">DateOfBirth</th>
+        </tr>
+        <tr th:each="studentList : ${studentList}">
+            <td th:text="${studentList.getName()}" style="font-size:20px; text-align:center;"></td>
+            <td th:text="${studentList.getId()}" style="font-size:20px; text-align:center;"></td>
+            <td th:text="${studentList.getEmail()}" style="font-size:20px; text-align:center;"></td>
+            <td th:text="${studentList.getDateOfBirth()}" style="font-size:20px; text-align:center;"></td>
+    </table>
+</div>
+
+<h1 th:text="'You would like to: '"></h1>
+<ul>
+    <li><a href="/index" style="font-size:15px">Go Back</a></li>
+    <li><a href="/logout" style="font-size:15px">Logout</a></li>
+</ul>
+
+
+</body>
+</html>

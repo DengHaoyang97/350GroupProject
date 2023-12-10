@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Login</title>
+<body background="https://pic1.zhimg.com/v2-ff7b02d115660d54f4fa3d4e7673a2df_r.jpg?source=1940ef5c"></body>
+<style>
+  ul {
+    list-style-type: none;
+  }
+
+  .center {
+    display: flex;
+    justify-content: center;
+  }
+
+  body {
+    background-color: #F5FFFA;
+  }
+
+  h2 {
+    border: 2px solid #D3D3D3;
+    opacity: 0.8;
+    border-radius: 8px;
+    margin-top: 60px;
+    margin-bottom: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #F5F5DC;
+    padding: 15px;
+    width: 400px;
+    text-align: center;
+  }
+
+  a:link {
+    color: DimGrey;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  a:visited {
+    color: DimGrey;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  a:hover {
+    color: DarkSlateGrey;
+    background-color: transparent;
+    text-decoration: underline;
+
+  }
+  a:active {
+    color: GoldenRod;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+
+  option {
+    font-size: 18px;
+    background-color: #F5F5DC;
+  }
+
+  form {
+    background-color: LightSteelBlue;
+    opacity: 0.8;
+    width: 400px;
+    border: 2px solid #708090;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    width: 90%;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+
+  button[type="submit"] {
+    background-color: DimGrey;
+    color: white;
+    padding: 10px 22px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+  }
+
+  button[type="submit"]:hover {
+    background-color: DarkGrey;
+    color: white;
+    border-radius: 8px;
+
+  }
+
+  p.error {
+    color: red;
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+<h2>Login</h2>
+<form th:action="@{/login}" method="post">
+  <div class="user_type">
+    <select name="user_type">
+      <option value="Student">Student</option>
+      <option value="Staff">Staff</option>
+      <option value="Admin">Admin</option>
+    </select>
+  </div>
+  <br>
+  <div>
+    <label for="id">School Id:</label>
+    <input type="text" id="id" name="id" required />
+  </div>
+  <div>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required />
+  </div>
+  <br>
+  <div>
+    <button type="submit">Login</button>
+  </div>
+</form>
+<ul class="center">
+  <li><a href="/FirstLogin" style="display:block;font-size: 20px;">First time login the OLS? Click here</a></li>
+</ul>
+<ul class="center">
+
+<li><a href="/InsertStudent" style="display:block;color:red;font-size: 20px;">Insert New Student For Testing</a></li>
+</ul>
+
+</body>
+</html>
+
+

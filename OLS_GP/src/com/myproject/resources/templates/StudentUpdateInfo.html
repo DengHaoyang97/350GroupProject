@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Login</title>
+  <body background="https://pic1.zhimg.com/v2-ff7b02d115660d54f4fa3d4e7673a2df_r.jpg?source=1940ef5c"></body>
+<style>
+  span {
+    text-align: left;
+    width: 200px;
+    display: inline-block;
+}
+</style>
+  
+</head>
+
+<body>
+<h2 style="font-size:30px">Update Your Info</h2>
+
+<h3 th:text="${message}" style="font: size 25px;"></h3>
+
+  <div>
+    <ul>
+      <li><h4 th:text="'Your ID is ' + ${studentinfo.getId()}" style="font-size:25px"></h4></li>
+      <li><h4 th:text="'Your Name is ' + ${studentinfo.getName()}" style="font-size:25px"></h4></li>
+    </ul>
+  </div>
+
+<form th:action="@{/StudentUpdateInfo}" method="post">
+  <input type="hidden" name="id" th:value="${studentinfo.getId()}"  />
+  <div>
+    <label for="password" style="font-size:25px"> <span>Password:</span></label>
+    <input type="password" id="password" name="password" required />
+  </div>
+  <div>
+    <label for="passportNumber" style="font-size:25px"><span>passportNumber:</span></label>
+    <span><input type="text" id="passportNumber" name="passportNumber" required /></span>
+  </div>
+  <div>
+    <label for="dateOfBirth" style="font-size:25px"><span>dateOfBirth:</span></label>
+  <span><input type="date" id="dateOfBirth" name="dateOfBirth" min="1923-12-07" max="2023-12-07" required /></span>
+  </div>
+  <div>
+    <label for="email" style="font-size:25px"><span>email:</span></label>
+  <span><input type="email" id="email" name="email" required /></span>
+  </div>
+  <div>
+    <h4> </h4>
+    <button type="submit" style="font-size:15px">Update</button>
+  </div>
+</form>
+</body>
+</html>
+
+

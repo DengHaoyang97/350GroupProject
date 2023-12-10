@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="'Online Learning System'"></title>
+    <body background="https://pic1.zhimg.com/v2-ff7b02d115660d54f4fa3d4e7673a2df_r.jpg?source=1940ef5c"></body>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            width: 400px;
+            height: 30px;
+        }
+        th, td {
+            padding: 1px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<h1 th:text="'Wellcome to the OLS DEMO'" style="font-size:20px"></h1>
+<h5 th:if="${#lists.isEmpty(subjectList)}" style="font-size:30px">Sorry, We cannot find any list for this</h5>
+
+<div th:if="${ not#lists.isEmpty(subjectList)}">
+    <h5 th:text="'Here is a list of Subjects'" style="font-size:20px"></h5>
+    <table>
+        <tr>
+            <th style="font-size:20px; text-align:center;">Name</th>
+            <th style="font-size:20px; text-align:center;">ID</th>
+        </tr>
+        <tr th:each="subjectList : ${subjectList}">
+            <td th:text="${subjectList.getName()}" style="font-size:20px; text-align:center;"></td>
+            <td th:text="${subjectList.getId()}" style="font-size:20px; text-align:center;"></td>
+    </table>
+</div>
+
+<h1 th:text="'You would like to: '" style="font-size:20px;"></h1>
+<ul>
+    <li><a href="/index"  style="font-size:20px;">Go Back</a></li>
+    <li><a href="/logout"  style="font-size:20px;">Logout</a></li>
+</ul>
+
+
+</body>
+</html>

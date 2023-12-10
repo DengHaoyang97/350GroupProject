@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<body background="https://pic1.zhimg.com/v2-ff7b02d115660d54f4fa3d4e7673a2df_r.jpg?source=1940ef5c"></body>
+<title>FirstLogin</title>
+<style>
+  body {
+    background-color: #F5FFFA;
+  }
+
+  h3 {
+    border: 2px solid #D3D3D3;
+    opacity: 0.7;
+    border-radius: 8px;
+    margin-top: 60px;
+    margin-bottom: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #F5F5DC;
+    padding: 15px;
+    width: 400px;
+    text-align: center;
+  }
+
+  a:link {
+    color: DimGrey;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  a:visited {
+    color: DimGrey;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  a:hover {
+    color: DarkSlateGrey;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+  a:active {
+    color: GoldenRod;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+
+  form {
+    background-color: LightSteelBlue;
+    opacity: 0.7;
+    width: 400px;
+    border: 2px solid #708090;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    width: 80%;
+    padding: 5px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+
+  button[type="submit"] {
+    background-color: DimGrey;
+    color: white;
+    padding: 10px 22px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+  }
+
+  button[type="submit"]:hover {
+    background-color: DarkGrey;
+    color: white;
+    border-radius: 8px;
+
+  }
+
+  p.error {
+    color: red;
+    margin-top: 10px;
+  }
+</style>
+
+</head>
+<body>
+<h3 th:text="${message}">FirstLogin</h3>
+<form th:action="@{/FirstLogin}" method="post">
+  <br>
+  <div>
+    <label for="id">School Id:</label>
+    <input type="text" id="id" name="id" required />
+  </div>
+  <div>
+    <label for="name">name:</label>
+    <input type="text" id="name" name="name" required />
+  </div>
+  <br>
+  <div>
+    <button type="submit">Check</button>
+  </div>
+  <br>
+</form>
+<br>
+<ul>
+  <footer style="text-align:center; margin-right: 50px;">
+    <a href="/login">Go Back</a>
+  </footer>
+</ul>
+</body>
+</html>

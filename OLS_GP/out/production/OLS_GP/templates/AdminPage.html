@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="'Online Learning System'"></title>
+</head>
+<body>
+<h1 th:text="'Wellcome to the OLS DEMO'"></h1>
+<h5 th:if="${#lists.isEmpty(adminList)}">Sorry, We cannot find any list for this</h5>
+
+
+<div th:if="${ not#lists.isEmpty(adminList)}">
+    <h5 th:text="'Here is a list of all Staff members'"></h5>
+    <tr th:each="adminList : ${adminList}">
+        <td th:text="${adminList.getUsername()}"></td>
+</div>
+
+</tr>
+
+<h1 th:text="'You would like to: '"></h1>
+<ul>
+    <li><a href="/index">Go Back</a></li>
+    <li><a href="/logout">Logout</a></li>
+</ul>
+
+
+</body>
+</html>
+
+//page not finished under maintainance

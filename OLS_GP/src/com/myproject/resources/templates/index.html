@@ -1,0 +1,177 @@
+<!doctype html>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title th:text="'Online Learning System'"></title>
+<body background="https://pic1.zhimg.com/v2-ff7b02d115660d54f4fa3d4e7673a2df_r.jpg?source=1940ef5c"></body>
+
+
+</head>
+
+<body>
+
+
+<h1 th:text="'Wellcome To The OLS BETA Version'"  style="background-color:LightSteelBlue;opacity: 0.7;background-size:auto;border: 2px solid #ccc;"></h1>
+
+<h5>You are now logged in as a <span style="color: green;" th:text="${user_type}"></span></h5>
+
+<ul>
+    <!--ProfilIcon-->
+    <li>
+        <div class="container">
+            <div class="profile-icon" onclick="toggleContent()">
+                <i class="fas fa-user"></i>
+            </div>
+            <span id="toggleText"></span>
+        </div>
+    </li>
+
+    <li>
+        <div class="container">
+            <h3 th:text="'Hi there ' + (${user_type == 'Staff'} ? 'Dr.' : '') + ${user.getName()}"></h3>
+        </div>
+    </li>
+
+
+
+
+    <!--ContentBox-->
+    <div id="content" style="display: none;">
+        <div class="content-wrapper">
+            <div class="content-box">
+                <div class="content">
+                    <ul>
+                        <li>
+                            <h4 th:text="${user_type}+' ID:' + ${user.getId()}" style="font-size: 20px;"></h4>
+                        </li>
+                        <li th:if="${user_type=='Student'}">
+                            <h4 th:text="'Date Of Birth:' + ${user.getDateOfBirth()}" style="font-size: 20px;"></h4>
+                        </li>
+                        <li th:if="${user_type=='Staff'}">
+                            <h4 th:text="'Status: ' + ${user.getStatus()}" style="font-size: 20px;"></h4>
+                        </li>
+                        <li>
+                            <h4 th:text="'PassportNo:' + ${user.getPassportNumber()}" style="font-size: 20px;"></h4>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</ul>
+
+
+<b><h5 th:if="${user_type == 'Student'}" th:text="'You Are Studying Following Courses:'"align="center" style="font-size:20px;color: #8a4fc4;" ></h5></b>
+<b><h5 th:if="${user_type == 'Staff'}" th:text="'You Are Assigned To Following Courses:'"align="center" style="font-size:20px;color: #8a4fc4;" ></h5></b>
+
+<ul>
+
+    <center><table>
+        <tr>
+            <th align="center">CouresID</th>
+            <th align="center">CourseName</th>
+        </tr>
+        <tr th:each="checkedSubList : ${checkedSubList}" >
+            <td th:text="${checkedSubList.getId()}"align="left" ></td>
+            <td th:text="${checkedSubList.getName()}"align="center"></td>
+
+    </table></center>
+</ul>
+
+
+<h1 th:text="'Would You like To: '"></h1>
+<ul>
+    <!--SearchBar-->
+    <li>
+        <form action="/Search">
+            <button type="submit" class="search-button">
+                <i class="fas fa-search" style="font-size: 20px;"></i> Search
+            </button>
+        </form>
+    </li>
+    <li><a href="/SubjectList" style="font-size: 20px;">List all the Subjects</a></li>
+    <li><a href="/StaffList" style="font-size: 20px;">List all the Staff</a></li>
+    <li><a href="/StudentList" style="font-size: 20px;">List all the Students</a></li>
+    <li><a href="/logout" style="font-size: 20px;">Logout</a></li>
+
+
+</ul>
+
+
+
+
+<style>
+    ul {
+        list-style-type: none;
+    }
+
+    .container {
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .profile-icon {
+        width: 50px;
+        height: 50px;
+        background-color: #ccc;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    h3 {
+        margin: 0;
+    }
+
+    .content-wrapper {
+        text-align: center;
+    }
+
+    .content-box {
+
+        padding: 20px;
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: LightSteelBlue;
+        opacity: 0.7;
+        border: 2px solid #ccc;
+        background-size:auto;
+
+
+    }
+
+    .content {
+        text-align: center;
+    }
+
+    .search-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+
+</style>
+
+
+
+
+<script>
+    function toggleContent() {
+        var content = document.getElementById("content");
+        if (content.style.display === "none") {
+            content.style.display = "block";
+        } else {
+            content.style.display = "none";
+        }
+    }
+</script>
+</body>
+
+</html>
